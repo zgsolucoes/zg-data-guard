@@ -1,0 +1,40 @@
+run:
+  # Timeout for analysis, e.g. 30s, 5m.
+  # Default: 1m
+  timeout: 5m
+  # Include test files or not.
+  tests: false
+
+linters-settings:
+  gofmt:
+    simplify: true
+  goimports:
+    local-prefixes: github.com/zgsolucoes/zg-data-guard
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+  gocyclo:
+    min-complexity: 10
+
+output:
+  formats:
+    - format: html
+      path: report-lint.html
+    - format: colored-line-number
+      path: stdout
+
+linters:
+  enable:
+    - gosec
+    - goimports
+    - staticcheck
+    - stylecheck
+    - unused
+
+issues:
+  exclude-dirs:
+    - vendor
+    - testdata
+  exclude-files:
+    - .*_test\.go
+    - .*_mock\.go
