@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS forbidden_databases;
+DROP TABLE IF EXISTS access_permissions;
+DROP TABLE IF EXISTS access_permission_log;
+DROP TABLE IF EXISTS database_users;
+DROP TABLE IF EXISTS database_roles;
+DROP TABLE IF EXISTS databases;
+DROP TABLE IF EXISTS database_instances;
+DROP TABLE IF EXISTS host_connection_info;
+DROP TABLE IF EXISTS database_technologies;
+DROP TABLE IF EXISTS ecosystems;
+DROP TABLE IF EXISTS application_users;

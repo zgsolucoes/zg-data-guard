@@ -1,0 +1,14 @@
+DROP INDEX IF EXISTS idx_access_permission_log_database_instance_id;
+DROP INDEX IF EXISTS idx_access_permission_log_user_id;
+DROP INDEX IF EXISTS idx_access_permission_log_database_user_id;
+DROP INDEX IF EXISTS idx_access_permission_log_database_id;
+DROP INDEX IF EXISTS idx_database_instances_ecosystem_id;
+DROP INDEX IF EXISTS idx_database_instances_database_technology_id;
+DROP INDEX IF EXISTS idx_databases_database_instance_id;
+DROP INDEX IF EXISTS idx_databases_created_by_user_id;
+DROP INDEX IF EXISTS idx_database_users_database_role_id;
+DROP INDEX IF EXISTS idx_database_users_created_by_user_id;
+DROP INDEX IF EXISTS idx_access_permissions_database_id;
+DROP INDEX IF EXISTS idx_access_permissions_database_user_id;
+DROP INDEX IF EXISTS idx_access_permissions_granted_by_user_id;
+DROP INDEX IF EXISTS idx_access_permissions_database_role_id;
