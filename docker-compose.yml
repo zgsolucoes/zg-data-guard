@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16.4
+    container_name: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      # Mount the postgres_data volume to persist the data, even if the container is removed or recreated. Example below:
+#     - postgres_data:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
