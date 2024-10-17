@@ -6,6 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
+	"github.com/zgsolucoes/zg-data-guard/internal/usecase/common"
 	"github.com/zgsolucoes/zg-data-guard/testdata/mocks"
 )
 
@@ -17,7 +18,7 @@ func TestGivenAnNonexistentId_WhenExecuteDelete_ThenShouldReturnError(t *testing
 	err := uc.Execute(mocks.TechnologyId, mocks.UserID)
 
 	assert.Error(t, err, "error expected when technology not found")
-	assert.EqualError(t, err, ErrTechnologyNotFound.Error())
+	assert.EqualError(t, err, common.ErrTechnologyNotFound.Error())
 	technologyStorage.AssertNumberOfCalls(t, "Delete", 1)
 }
 

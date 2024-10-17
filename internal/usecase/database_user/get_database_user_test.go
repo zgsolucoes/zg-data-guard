@@ -101,6 +101,6 @@ func TestGivenAValidId_WhenFetchCredentials_ThenShouldReturnCredentials(t *testi
 	assert.NoError(t, err, "no error expected with an existent id")
 	assert.NotNil(t, output, "credentials DTO should not be nil")
 	assert.Equal(t, dbUser.Username, output.User)
-	assert.Equal(t, "postgres", output.Password)
+	assert.Equal(t, "P6\x10\xbc2.\xad\x82", output.Password)
 	dbUserStorage.AssertNumberOfCalls(t, "FindByID", 1)
 }

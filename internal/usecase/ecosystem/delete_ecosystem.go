@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"github.com/zgsolucoes/zg-data-guard/internal/database/storage"
+	"github.com/zgsolucoes/zg-data-guard/internal/usecase/common"
 )
 
 type DeleteEcosystemUseCase struct {
@@ -22,7 +23,7 @@ func (uc *DeleteEcosystemUseCase) Execute(ecosystemID string, operationUserID st
 	err := uc.EcosystemStorage.Delete(ecosystemID)
 	if err != nil && errors.Is(err, sql.ErrNoRows) {
 		log.Printf("Ecosystem with id %s not found in database!", ecosystemID)
-		return ErrEcosystemNotFound
+		return common.ErrEcosystemNotFound
 	}
 	if err != nil {
 		log.Printf("Error deleting ecosystem with id %s. Cause: %v", ecosystemID, err.Error())

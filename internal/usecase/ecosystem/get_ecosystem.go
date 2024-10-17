@@ -7,13 +7,10 @@ import (
 
 	"github.com/zgsolucoes/zg-data-guard/internal/database/storage"
 	"github.com/zgsolucoes/zg-data-guard/internal/dto"
+	"github.com/zgsolucoes/zg-data-guard/internal/usecase/common"
 )
 
 const errorFetchingEcosystem = "Error fetching ecosystem"
-
-var (
-	ErrEcosystemNotFound = errors.New("ecosystem not found")
-)
 
 type GetEcosystemUseCase struct {
 	EcosystemStorage storage.EcosystemStorage
@@ -34,7 +31,7 @@ func (uc *GetEcosystemUseCase) Execute(ecosystemID string) (*dto.EcosystemOutput
 	ecosystem, err := uc.EcosystemStorage.FindByID(ecosystemID)
 	if err != nil && errors.Is(err, sql.ErrNoRows) {
 		logErrorWithID(err, errorFetchingEcosystem, ecosystemID)
-		return nil, ErrEcosystemNotFound
+		return nil, common.ErrEcosystemNotFound
 	}
 	if err != nil {
 		logErrorWithID(err, errorFetchingEcosystem, ecosystemID)

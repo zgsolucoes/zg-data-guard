@@ -8,6 +8,7 @@ import (
 
 	"github.com/zgsolucoes/zg-data-guard/internal/dto"
 	"github.com/zgsolucoes/zg-data-guard/internal/entity"
+	"github.com/zgsolucoes/zg-data-guard/internal/usecase/common"
 	"github.com/zgsolucoes/zg-data-guard/testdata/mocks"
 )
 
@@ -26,7 +27,7 @@ func TestGivenAnNonexistentId_WhenExecuteUpdate_ThenShouldReturnError(t *testing
 	technologyOutput, err := uc.Execute(validInput, mocks.TechnologyId, mocks.UserID)
 
 	assert.Error(t, err, "error expected when technology not found")
-	assert.EqualError(t, err, ErrTechnologyNotFound.Error())
+	assert.EqualError(t, err, common.ErrTechnologyNotFound.Error())
 	assert.Nil(t, technologyOutput)
 	technologyStorage.AssertNumberOfCalls(t, "FindByID", 1)
 }

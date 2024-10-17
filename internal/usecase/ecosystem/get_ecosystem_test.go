@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/zgsolucoes/zg-data-guard/internal/entity"
+	"github.com/zgsolucoes/zg-data-guard/internal/usecase/common"
 	"github.com/zgsolucoes/zg-data-guard/testdata/mocks"
 
 	"github.com/stretchr/testify/assert"
@@ -19,7 +20,7 @@ func TestGivenAnNonexistentId_WhenExecuteGet_ThenShouldReturnError(t *testing.T)
 	ecosystemOutput, err := uc.Execute(mocks.EcosystemId)
 
 	assert.Error(t, err, "error expected when ecosystem not found")
-	assert.EqualError(t, err, ErrEcosystemNotFound.Error())
+	assert.EqualError(t, err, common.ErrEcosystemNotFound.Error())
 	assert.Nil(t, ecosystemOutput)
 	ecosystemStorage.AssertNumberOfCalls(t, "FindByID", 1)
 }

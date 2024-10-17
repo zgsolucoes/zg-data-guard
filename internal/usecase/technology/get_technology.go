@@ -7,13 +7,10 @@ import (
 
 	"github.com/zgsolucoes/zg-data-guard/internal/database/storage"
 	"github.com/zgsolucoes/zg-data-guard/internal/dto"
+	"github.com/zgsolucoes/zg-data-guard/internal/usecase/common"
 )
 
 const errorFetchingTechnology = "Error fetching technology"
-
-var (
-	ErrTechnologyNotFound = errors.New("technology not found")
-)
 
 type GetTechnologyUseCase struct {
 	TechnologyStorage storage.DatabaseTechnologyStorage
@@ -33,8 +30,8 @@ func NewGetTechnologyUseCase(
 func (uc *GetTechnologyUseCase) Execute(technologyID string) (*dto.TechnologyOutputDTO, error) {
 	technology, err := uc.TechnologyStorage.FindByID(technologyID)
 	if err != nil && errors.Is(err, sql.ErrNoRows) {
-		logErrorWithID(ErrTechnologyNotFound, errorFetchingTechnology, technologyID)
-		return nil, ErrTechnologyNotFound
+		logErrorWithID(common.ErrTechnologyNotFound, errorFetchingTechnology, technologyID)
+		return nil, common.ErrTechnologyNotFound
 	}
 	if err != nil {
 		logErrorWithID(err, errorFetchingTechnology, technologyID)

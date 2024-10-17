@@ -7,6 +7,7 @@ import (
 
 	"github.com/zgsolucoes/zg-data-guard/internal/database/storage"
 	"github.com/zgsolucoes/zg-data-guard/internal/dto"
+	"github.com/zgsolucoes/zg-data-guard/internal/usecase/common"
 )
 
 const errorUpdatingTechnology = "Error updating technology"
@@ -24,8 +25,8 @@ func NewUpdateTechnologyUseCase(technologyStorage storage.DatabaseTechnologyStor
 func (uc *UpdateTechnologyUseCase) Execute(input dto.TechnologyInputDTO, technologyID, operationUserID string) (*dto.TechnologyOutputDTO, error) {
 	technology, err := uc.TechnologyStorage.FindByID(technologyID)
 	if err != nil && errors.Is(err, sql.ErrNoRows) {
-		logErrorWithID(ErrTechnologyNotFound, errorUpdatingTechnology, technologyID)
-		return nil, ErrTechnologyNotFound
+		logErrorWithID(common.ErrTechnologyNotFound, errorUpdatingTechnology, technologyID)
+		return nil, common.ErrTechnologyNotFound
 	}
 	if err != nil {
 		logErrorWithID(err, errorUpdatingTechnology, technologyID)

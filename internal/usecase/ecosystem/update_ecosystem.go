@@ -7,6 +7,7 @@ import (
 
 	"github.com/zgsolucoes/zg-data-guard/internal/database/storage"
 	"github.com/zgsolucoes/zg-data-guard/internal/dto"
+	"github.com/zgsolucoes/zg-data-guard/internal/usecase/common"
 )
 
 type UpdateEcosystemUseCase struct {
@@ -23,7 +24,7 @@ func (uc *UpdateEcosystemUseCase) Execute(input dto.EcosystemInputDTO, ecosystem
 	ecosystem, err := uc.EcosystemStorage.FindByID(ecosystemID)
 	if err != nil && errors.Is(err, sql.ErrNoRows) {
 		log.Printf("Ecosystem with id %s not found in database!", ecosystemID)
-		return nil, ErrEcosystemNotFound
+		return nil, common.ErrEcosystemNotFound
 	}
 	if err != nil {
 		log.Printf("Error fetching ecosystem with id %s. Cause: %v", ecosystemID, err.Error())

@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"github.com/zgsolucoes/zg-data-guard/internal/database/storage"
+	"github.com/zgsolucoes/zg-data-guard/internal/usecase/common"
 )
 
 const errorDeletingTechnology = "Error deleting technology"
@@ -23,8 +24,8 @@ func NewDeleteTechnologyUseCase(technologyStorage storage.DatabaseTechnologyStor
 func (uc *DeleteTechnologyUseCase) Execute(technologyID string, operationUserID string) error {
 	err := uc.TechnologyStorage.Delete(technologyID)
 	if err != nil && errors.Is(err, sql.ErrNoRows) {
-		logErrorWithID(ErrTechnologyNotFound, errorDeletingTechnology, technologyID)
-		return ErrTechnologyNotFound
+		logErrorWithID(common.ErrTechnologyNotFound, errorDeletingTechnology, technologyID)
+		return common.ErrTechnologyNotFound
 	}
 	if err != nil {
 		logErrorWithID(err, errorDeletingTechnology, technologyID)
