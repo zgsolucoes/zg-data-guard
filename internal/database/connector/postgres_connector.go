@@ -46,16 +46,10 @@ func (pc *PostgresConnector) TestConnection() error {
 }
 
 // CreateRoles godoc
-// Create Data Guard roles in the database instance and setup zgbd user
+// Create Data Guard roles in the database instance
 func (pc *PostgresConnector) CreateRoles(roles []*DatabaseRole) error {
 	return pc.executeWithTimeout(context.Background(), func(ctx context.Context, db *sql.DB) error {
 		if err := pc.createRolesInDB(ctx, db, roles); err != nil {
-			return err
-		}
-		if err := pc.allowReplicationSlotCreation(ctx, db); err != nil {
-			return err
-		}
-		if err := pc.grantApplicationRole(ctx, db); err != nil {
 			return err
 		}
 		return nil
@@ -75,16 +69,6 @@ func (pc *PostgresConnector) createRolesInDB(ctx context.Context, db *sql.DB, ro
 		}
 	}
 	return nil
-}
-
-func (pc *PostgresConnector) allowReplicationSlotCreation(ctx context.Context, db *sql.DB) error {
-	_, err := db.ExecContext(ctx, "ALTER ROLE zgbd REPLICATION")
-	return err
-}
-
-func (pc *PostgresConnector) grantApplicationRole(ctx context.Context, db *sql.DB) error {
-	_, err := db.ExecContext(ctx, "GRANT application TO zgbd")
-	return err
 }
 
 // SetupGrantsToRoles godoc
