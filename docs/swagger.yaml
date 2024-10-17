@@ -1,0 +1,1998 @@
+definitions:
+  dto.AccessPermissionLogOutputDTO:
+    properties:
+      databaseId:
+        type: string
+      databaseInstanceId:
+        type: string
+      databaseInstanceName:
+        type: string
+      databaseName:
+        type: string
+      databaseUserEmail:
+        type: string
+      databaseUserId:
+        type: string
+      databaseUserName:
+        type: string
+      date:
+        type: string
+      id:
+        type: string
+      message:
+        type: string
+      operationUserId:
+        type: string
+      operationUserName:
+        type: string
+      success:
+        type: boolean
+    type: object
+  dto.AccessPermissionOutputDTO:
+    properties:
+      databaseId:
+        type: string
+      databaseInstanceId:
+        type: string
+      databaseInstanceName:
+        type: string
+      databaseName:
+        type: string
+      databaseRoleId:
+        type: string
+      databaseRoleName:
+        type: string
+      databaseUserEmail:
+        type: string
+      databaseUserId:
+        type: string
+      databaseUserName:
+        type: string
+      ecosystemId:
+        type: string
+      ecosystemName:
+        type: string
+      grantedAt:
+        type: string
+      grantedByUserId:
+        type: string
+      grantedByUserName:
+        type: string
+      id:
+        type: string
+    type: object
+  dto.ChangeStatusInputDTO:
+    properties:
+      enabled:
+        type: boolean
+      id:
+        type: string
+    type: object
+  dto.ChangeStatusOutputDTO:
+    properties:
+      disabledAt:
+        type: string
+      enabled:
+        type: boolean
+      id:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  dto.DatabaseInstanceCredentialsOutputDTO:
+    properties:
+      password:
+        type: string
+      user:
+        type: string
+    type: object
+  dto.DatabaseInstanceInputDTO:
+    properties:
+      adminPassword:
+        type: string
+      adminUser:
+        type: string
+      databaseTechnologyId:
+        type: string
+      ecosystemId:
+        type: string
+      host:
+        type: string
+      hostConnection:
+        type: string
+      name:
+        type: string
+      note:
+        type: string
+      port:
+        type: string
+      portConnection:
+        type: string
+    type: object
+  dto.DatabaseInstanceOutputDTO:
+    properties:
+      adminPassword:
+        type: string
+      adminUser:
+        type: string
+      connectionStatus:
+        type: string
+      createdAt:
+        type: string
+      createdByUser:
+        type: string
+      createdByUserId:
+        type: string
+      databaseTechnologyId:
+        type: string
+      databaseTechnologyName:
+        type: string
+      databaseTechnologyVersion:
+        type: string
+      disabledAt:
+        type: string
+      ecosystemId:
+        type: string
+      ecosystemName:
+        type: string
+      enabled:
+        type: boolean
+      host:
+        type: string
+      hostConnection:
+        type: string
+      id:
+        type: string
+      lastConnectionResult:
+        type: string
+      lastConnectionTest:
+        type: string
+      lastDatabaseSync:
+        type: string
+      name:
+        type: string
+      note:
+        type: string
+      port:
+        type: string
+      portConnection:
+        type: string
+      rolesCreated:
+        type: boolean
+      updatedAt:
+        type: string
+    type: object
+  dto.DatabaseOutputDTO:
+    properties:
+      createdAt:
+        type: string
+      createdByUser:
+        type: string
+      createdByUserId:
+        type: string
+      currentSize:
+        type: string
+      databaseInstanceId:
+        type: string
+      databaseInstanceName:
+        type: string
+      databaseTechnologyId:
+        type: string
+      databaseTechnologyName:
+        type: string
+      databaseTechnologyVersion:
+        type: string
+      description:
+        type: string
+      disabledAt:
+        type: string
+      ecosystemId:
+        type: string
+      ecosystemName:
+        type: string
+      enabled:
+        type: boolean
+      id:
+        type: string
+      lastDatabaseSync:
+        type: string
+      name:
+        type: string
+      rolesConfigured:
+        type: boolean
+      updatedAt:
+        type: string
+    type: object
+  dto.DatabaseRoleOutputDTO:
+    properties:
+      createdAt:
+        type: string
+      createdByUserId:
+        type: string
+      description:
+        type: string
+      displayName:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      readOnly:
+        type: boolean
+    type: object
+  dto.DatabaseUserCredentialsOutputDTO:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  dto.DatabaseUserInputDTO:
+    properties:
+      databaseRoleId:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      position:
+        type: string
+      team:
+        type: string
+    type: object
+  dto.DatabaseUserOutputDTO:
+    properties:
+      createdAt:
+        type: string
+      createdByUser:
+        type: string
+      createdByUserId:
+        type: string
+      databaseRoleDisplayName:
+        type: string
+      databaseRoleId:
+        type: string
+      databaseRoleName:
+        type: string
+      disabledAt:
+        type: string
+      email:
+        type: string
+      enabled:
+        type: boolean
+      id:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      position:
+        type: string
+      team:
+        type: string
+      updatedAt:
+        type: string
+      username:
+        type: string
+    type: object
+  dto.EcosystemInputDTO:
+    properties:
+      code:
+        type: string
+      displayName:
+        type: string
+    type: object
+  dto.EcosystemOutputDTO:
+    properties:
+      code:
+        type: string
+      createdAt:
+        type: string
+      createdByUser:
+        type: string
+      createdByUserId:
+        type: string
+      displayName:
+        type: string
+      id:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  dto.GrantAccessInputDTO:
+    properties:
+      databaseUsersIds:
+        items:
+          type: string
+        type: array
+      instancesData:
+        items:
+          $ref: '#/definitions/dto.InstanceDataDTO'
+        type: array
+    type: object
+  dto.GrantAccessOutputDTO:
+    properties:
+      hasErrors:
+        type: boolean
+      message:
+        type: string
+    type: object
+  dto.InstanceDataDTO:
+    properties:
+      databaseInstanceId:
+        type: string
+      databasesIds:
+        items:
+          type: string
+        type: array
+    type: object
+  dto.PropagateRolesInputDTO:
+    properties:
+      databaseInstancesIds:
+        items:
+          type: string
+        type: array
+    type: object
+  dto.PropagateRolesOutputDTO:
+    properties:
+      databaseInstanceId:
+        type: string
+      ecosystem:
+        type: string
+      instance:
+        type: string
+      message:
+        type: string
+      success:
+        type: boolean
+      technology:
+        type: string
+    type: object
+  dto.RevokeAccessInputDTO:
+    properties:
+      databaseInstancesIds:
+        items:
+          type: string
+        type: array
+      databaseUserId:
+        type: string
+    type: object
+  dto.RevokeAccessOutputDTO:
+    properties:
+      hasErrors:
+        type: boolean
+      message:
+        type: string
+    type: object
+  dto.SetupRolesInputDTO:
+    properties:
+      databaseInstanceId:
+        type: string
+      databasesIds:
+        items:
+          type: string
+        type: array
+    type: object
+  dto.SetupRolesOutputDTO:
+    properties:
+      databaseId:
+        type: string
+      databaseInstanceId:
+        type: string
+      databaseName:
+        type: string
+      ecosystem:
+        type: string
+      instance:
+        type: string
+      message:
+        type: string
+      success:
+        type: boolean
+      technology:
+        type: string
+    type: object
+  dto.SyncDatabasesInputDTO:
+    properties:
+      databaseInstancesIds:
+        items:
+          type: string
+        type: array
+    type: object
+  dto.SyncDatabasesOutputDTO:
+    properties:
+      databaseInstanceId:
+        type: string
+      ecosystem:
+        type: string
+      instance:
+        type: string
+      message:
+        type: string
+      success:
+        type: boolean
+      technology:
+        type: string
+      totalDatabases:
+        type: integer
+    type: object
+  dto.TechnologyInputDTO:
+    properties:
+      name:
+        type: string
+      version:
+        type: string
+    type: object
+  dto.TechnologyOutputDTO:
+    properties:
+      createdAt:
+        type: string
+      createdByUser:
+        type: string
+      createdByUserId:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      updatedAt:
+        type: string
+      version:
+        type: string
+    type: object
+  dto.TestConnectionInputDTO:
+    properties:
+      databaseInstancesIds:
+        items:
+          type: string
+        type: array
+    type: object
+  dto.TestConnectionOutputDTO:
+    properties:
+      databaseInstanceId:
+        type: string
+      ecosystem:
+        type: string
+      instance:
+        type: string
+      message:
+        type: string
+      success:
+        type: boolean
+      technology:
+        type: string
+    type: object
+  dto.UpdateDatabaseUserInputDTO:
+    properties:
+      databaseRoleId:
+        type: string
+      name:
+        type: string
+      position:
+        type: string
+      team:
+        type: string
+    type: object
+  handler.ChangeStatusResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.ChangeStatusOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.CreateDatabaseInstanceResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.DatabaseInstanceOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.CreateDatabaseUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.DatabaseUserOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.CreateEcosystemResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.EcosystemOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.CreateTechnologyResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.TechnologyOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.DeleteEcosystemResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  handler.DeleteTechnologyResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  handler.ErrorResponse:
+    properties:
+      errorCode:
+        type: string
+      message:
+        type: string
+    type: object
+  handler.GetDatabaseInstanceCredentialsResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.DatabaseInstanceCredentialsOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.GetDatabaseInstanceResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.DatabaseInstanceOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.GetDatabaseResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.DatabaseOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.GetDatabaseUserCredentialsResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.DatabaseUserCredentialsOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.GetDatabaseUserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.DatabaseUserOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.GetEcosystemResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.EcosystemOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.GetTechnologyResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.TechnologyOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.GrantAccessResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.GrantAccessOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.ListAccessPermissionLogsResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.AccessPermissionLogOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.ListAccessPermissionsResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.AccessPermissionOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.ListDatabaseInstancesResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.DatabaseInstanceOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.ListDatabaseRolesResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.DatabaseRoleOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.ListDatabaseUsersResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.DatabaseUserOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.ListDatabasesResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.DatabaseOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.ListEcosystemsResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.EcosystemOutputDTO'
+        type: array
+      limit:
+        type: integer
+      message:
+        type: string
+      page:
+        type: integer
+      total:
+        type: integer
+    type: object
+  handler.ListTechnologiesResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.TechnologyOutputDTO'
+        type: array
+      limit:
+        type: integer
+      message:
+        type: string
+      page:
+        type: integer
+      total:
+        type: integer
+    type: object
+  handler.PropagateRolesResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.PropagateRolesOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.RevokeAccessResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.RevokeAccessOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.SetupRolesResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.SetupRolesOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.SyncDatabasesResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.SyncDatabasesOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.TestConnectionResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/dto.TestConnectionOutputDTO'
+        type: array
+      message:
+        type: string
+      total:
+        type: integer
+    type: object
+  handler.UpdateEcosystemResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.EcosystemOutputDTO'
+      message:
+        type: string
+    type: object
+  handler.UpdateTechnologyResponse:
+    properties:
+      data:
+        $ref: '#/definitions/dto.TechnologyOutputDTO'
+      message:
+        type: string
+    type: object
+info:
+  contact:
+    email: luizhenrique@zgsolucoes.com.br
+    name: Luiz Henrique F. da Silva
+  description: |-
+    <b>This is the ZG Data Guard API.</b> <br />
+    ZG Data Guard is a centralized tool designed to streamline and secure the management of multiple databases across various environments.
+    It simplifies administration by providing a unified platform to handle database ecosystems, technologies, instances, predefined roles,
+    databases, users, and access control. All secured through JWT-protected API. <br /><br />Enjoy :D
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: ZG Data Guard API
+  version: "1.0"
+paths:
+  /access-permission/grant:
+    post:
+      consumes:
+      - application/json
+      description: Grant connection access to a set of users to a set of instances
+        and their respective databases
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.GrantAccessInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GrantAccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Grant connection access to a set of users to a set of instances and
+        their respective databases
+      tags:
+      - Access Permission
+  /access-permission/logs:
+    get:
+      consumes:
+      - application/json
+      description: List all existing access permission logs
+      parameters:
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListAccessPermissionLogsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: List all existing access permission logs
+      tags:
+      - Access Permission
+  /access-permission/revoke:
+    post:
+      consumes:
+      - application/json
+      description: If no instance is provided, it revokes access from all instances
+        accessible by the user.
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RevokeAccessInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.RevokeAccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Revoke connection access to a specific user from a set of instances
+        and their respective databases
+      tags:
+      - Access Permission
+  /access-permissions:
+    get:
+      consumes:
+      - application/json
+      description: List all existing access permissions established between users
+        and databases
+      parameters:
+      - description: Database ID
+        in: query
+        name: databaseId
+        type: string
+      - description: Database User ID
+        in: query
+        name: databaseUserId
+        type: string
+      - description: Database Instance ID
+        in: query
+        name: databaseInstanceId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListAccessPermissionsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: List all existing access permissions established between users and
+        databases
+      tags:
+      - Access Permission
+  /database:
+    get:
+      consumes:
+      - application/json
+      description: Get an existing database
+      parameters:
+      - description: Database ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GetDatabaseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a database
+      tags:
+      - Database
+  /database-instance:
+    get:
+      consumes:
+      - application/json
+      description: Get an existing database instance
+      parameters:
+      - description: Database Instance ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GetDatabaseInstanceResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a database instance
+      tags:
+      - Database Instance
+    post:
+      consumes:
+      - application/json
+      description: Create a new database instance
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.DatabaseInstanceInputDTO'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.CreateDatabaseInstanceResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a database instance
+      tags:
+      - Database Instance
+    put:
+      consumes:
+      - application/json
+      description: Update an existing database instance
+      parameters:
+      - description: Database Instance ID
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.DatabaseInstanceInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.CreateDatabaseInstanceResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a database instance
+      tags:
+      - Database Instance
+  /database-instance/change-status:
+    patch:
+      consumes:
+      - application/json
+      description: Change the status of a database instance (cluster), enabling or
+        disabling it. If disabled, it removes all access permissions from all database
+        users that have access to the instance. It also deactivates all databases
+        from the instance.
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ChangeStatusInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ChangeStatusResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Change the status of a database instance (cluster), enabling or disabling
+        it. If disabled, it removes all access permissions from all database users
+        that have access to the instance. It also deactivates all databases from the
+        instance.
+      tags:
+      - Database Instance
+  /database-instance/credentials:
+    get:
+      consumes:
+      - application/json
+      description: Get credentials of an existing database instance
+      parameters:
+      - description: Database Instance ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GetDatabaseInstanceCredentialsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get credentials of a specific database instance
+      tags:
+      - Database Instance
+  /database-instance/propagate-roles:
+    post:
+      consumes:
+      - application/json
+      description: Propagates all database role records to the selected database instances,
+        if instances ids are not provided, propagate to all enabled instances
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        schema:
+          $ref: '#/definitions/dto.PropagateRolesInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.PropagateRolesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Propagates all database role records to the selected database instances,
+        if instances ids are not provided, propagate to all enabled instances
+      tags:
+      - Database Instance
+  /database-instance/sync-databases:
+    post:
+      consumes:
+      - application/json
+      description: Sync databases from selected database instances, if instances ids
+        are not provided, sync all enabled instances
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        schema:
+          $ref: '#/definitions/dto.SyncDatabasesInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SyncDatabasesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Sync databases from selected database instances, if instances ids are
+        not provided, sync all enabled instances
+      tags:
+      - Database Instance
+  /database-instance/test-connection:
+    post:
+      consumes:
+      - application/json
+      description: Test connection with the selected database instances, if instances
+        ids are not provided, test connection with all enabled instances
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        schema:
+          $ref: '#/definitions/dto.TestConnectionInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.TestConnectionResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Test connection with the selected database instances, if instances
+        ids are not provided, test connection with all enabled instances
+      tags:
+      - Database Instance
+  /database-instances:
+    get:
+      consumes:
+      - application/json
+      description: List all existing database instances
+      parameters:
+      - description: Ecosystem ID
+        in: query
+        name: ecosystemId
+        type: string
+      - description: Database Technology ID
+        in: query
+        name: technologyId
+        type: string
+      - description: Only Enabled Database Instances
+        in: query
+        name: onlyEnabled
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListDatabaseInstancesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: List all existing database instances
+      tags:
+      - Database Instance
+  /database-roles:
+    get:
+      consumes:
+      - application/json
+      description: List all existing database roles
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListDatabaseRolesResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: List all existing database roles
+      tags:
+      - Database Role
+  /database-user:
+    get:
+      consumes:
+      - application/json
+      description: Get an existing database user
+      parameters:
+      - description: Database User ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GetDatabaseUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a database user
+      tags:
+      - Database User
+    post:
+      consumes:
+      - application/json
+      description: Create a new database user
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.DatabaseUserInputDTO'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.CreateDatabaseUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a database user
+      tags:
+      - Database User
+    put:
+      consumes:
+      - application/json
+      description: Update an existing database user
+      parameters:
+      - description: Database User ID
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateDatabaseUserInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.CreateDatabaseUserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a database user
+      tags:
+      - Database User
+  /database-user/change-status:
+    patch:
+      consumes:
+      - application/json
+      description: Change the status of a database user, enabling or disabling it.
+        If disabled, it revokes access from all instances accessible by the user.
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ChangeStatusInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ChangeStatusResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Change the status of a database user, enabling or disabling it. If
+        disabled, it revokes access from all instances accessible by the user.
+      tags:
+      - Database User
+  /database-user/credentials:
+    get:
+      consumes:
+      - application/json
+      description: Get credentials of an existing database user
+      parameters:
+      - description: Database User ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GetDatabaseUserCredentialsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get credentials of a specific database user
+      tags:
+      - Database User
+  /database-users:
+    get:
+      consumes:
+      - application/json
+      description: List all existing database users
+      parameters:
+      - description: Only Enabled Users
+        in: query
+        name: onlyEnabled
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListDatabaseUsersResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: List all existing database users
+      tags:
+      - Database User
+  /database/setup-roles:
+    post:
+      consumes:
+      - application/json
+      description: Setup roles (applying grants) in the selected databases, if databases
+        ids are not provided, setup roles in all enabled databases belonging to the
+        enabled instances
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        schema:
+          $ref: '#/definitions/dto.SetupRolesInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SetupRolesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Setup roles (applying grants) in the selected databases, if databases
+        ids are not provided, setup roles in all enabled databases belonging to the
+        enabled instances
+      tags:
+      - Database
+  /databases:
+    get:
+      consumes:
+      - application/json
+      description: List all existing databases
+      parameters:
+      - description: Ecosystem ID
+        in: query
+        name: ecosystemId
+        type: string
+      - description: Database Instance ID
+        in: query
+        name: databaseInstanceId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListDatabasesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: List all existing databases
+      tags:
+      - Database
+  /ecosystem:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing ecosystem
+      parameters:
+      - description: Ecosystem ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DeleteEcosystemResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete an ecosystem
+      tags:
+      - Ecosystem
+    get:
+      consumes:
+      - application/json
+      description: Get an existing ecosystem
+      parameters:
+      - description: Ecosystem ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GetEcosystemResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get an ecosystem
+      tags:
+      - Ecosystem
+    post:
+      consumes:
+      - application/json
+      description: Create a new ecosystem
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.EcosystemInputDTO'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.CreateEcosystemResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create an ecosystem
+      tags:
+      - Ecosystem
+    put:
+      consumes:
+      - application/json
+      description: Update an existing ecosystem
+      parameters:
+      - description: Ecosystem ID
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.EcosystemInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.UpdateEcosystemResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update an ecosystem
+      tags:
+      - Ecosystem
+  /ecosystems:
+    get:
+      consumes:
+      - application/json
+      description: List all existing ecosystems
+      parameters:
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListEcosystemsResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: List all existing ecosystems
+      tags:
+      - Ecosystem
+  /technologies:
+    get:
+      consumes:
+      - application/json
+      description: List all existing technologies
+      parameters:
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Limit per page
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ListTechnologiesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: List all existing technologies
+      tags:
+      - Technology
+  /technology:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing technology
+      parameters:
+      - description: Technology ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.DeleteTechnologyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a technology
+      tags:
+      - Technology
+    get:
+      consumes:
+      - application/json
+      description: Get an existing technology
+      parameters:
+      - description: Technology ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.GetTechnologyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Get a technology
+      tags:
+      - Technology
+    post:
+      consumes:
+      - application/json
+      description: Create a new technology
+      parameters:
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.TechnologyInputDTO'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handler.CreateTechnologyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a technology
+      tags:
+      - Technology
+    put:
+      consumes:
+      - application/json
+      description: Update an existing technology
+      parameters:
+      - description: Technology ID
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: Request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.TechnologyInputDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.UpdateTechnologyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Update a technology
+      tags:
+      - Technology
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
+tags:
+- description: It represents the ecosystem where the database instance (cluster) is
+    running. e.g. AWS, Cloud XPTO, On-premises, etc.
+  name: Ecosystem
+- description: It represents the database technology. e.g. PostgreSQL 13, PostgreSQL
+    16, MySQL 5, etc.
+  name: Technology
+- description: It represents the database instance (cluster) that is running in a
+    specific ecosystem.
+  name: Database Instance
+- description: It represents the database that is running in a specific database instance.
+    e.g. zg-data-guard, users-service, foo-service, etc.
+  name: Database
+- description: It represents the role that can be assigned to a user in a specific
+    database. Each role has specific permissions. e.g. user_ro, developer, devops,
+    etc.
+  name: Database Role
+- description: It represents the user that can be created in a specific database instance
+    (cluster) with a specific role. e.g. foo.bar, john.doe, etc.
+  name: Database User
+- description: It represents the permission that can be granted to a user to connect
+    in a specific database. e.g. foo.bar (user) can connect in zg-data-guard (database)
+    with developer role.
+  name: Access Permission
