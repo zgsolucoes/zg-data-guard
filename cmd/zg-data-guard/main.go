@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/zgsolucoes/zg-data-guard/config"
+	"github.com/zgsolucoes/zg-data-guard/internal/webserver/router"
 )
 
 // @title           ZG Data Guard API
@@ -39,5 +40,7 @@ import (
 func main() {
 	// Initialize Configs: Envs, Database Connection, Migrations, JWT, Crypto, etc
 	config.Init()
+	// Initialize WebServer
+	router.Init()
 	config.Cleanup()
 }
