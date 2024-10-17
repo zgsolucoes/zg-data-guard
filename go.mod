@@ -3,7 +3,7 @@ module github.com/zgsolucoes/zg-data-guard
 go 1.22.2
 
 require (
-	github.com/go-chi/chi v1.5.1
+	github.com/go-chi/chi v1.5.5
 	github.com/go-chi/chi/v5 v5.1.0
 	github.com/go-chi/jwtauth v1.2.0
 	github.com/golang-migrate/migrate/v4 v4.18.1
