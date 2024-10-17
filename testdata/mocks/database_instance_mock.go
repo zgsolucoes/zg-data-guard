@@ -49,7 +49,7 @@ func BuildTestInstance() *entity.DatabaseInstance {
 
 func BuildInstancesList() []*dto.DatabaseInstanceOutputDTO {
 	dbInstanceDto := BuildQAInstanceDTO()
-	dbInstanceDto2 := BuildAzureInstanceDTO()
+	dbInstanceDto2 := BuildAzInstanceDTO()
 	dbInstanceDto3 := BuildDummyErrorInstance()
 	dbInstances := []*dto.DatabaseInstanceOutputDTO{dbInstanceDto, dbInstanceDto2, dbInstanceDto3}
 	return dbInstances
@@ -76,7 +76,7 @@ func BuildQAInstanceEnabled() *dto.DatabaseInstanceOutputDTO {
 	return i
 }
 
-func BuildAzureInstanceDTO() *dto.DatabaseInstanceOutputDTO {
+func BuildAzInstanceDTO() *dto.DatabaseInstanceOutputDTO {
 	return &dto.DatabaseInstanceOutputDTO{
 		ID:                        DatabaseInstanceId,
 		EcosystemName:             "Azure",

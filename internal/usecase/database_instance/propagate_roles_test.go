@@ -58,7 +58,7 @@ func TestGivenInputWithIdsNotExistent_WhenExecutePropagateRoles_ThenShouldReturn
 
 func TestGivenAnErrorInDbWhileFetchingRoles_WhenExecutePropagateRoles_ThenShouldReturnError(t *testing.T) {
 	dbInstanceStorage := new(mocks.DatabaseInstanceStorageMock)
-	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzureInstanceDTO()}
+	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzInstanceDTO()}
 	dbInstanceStorage.On("FindAllDTOsEnabled", "", "").Return(dbInstances, nil).Once()
 	roleStorage := new(mocks.DatabaseRoleStorageMock)
 	roleStorage.On("FindAll").Return([]*entity.DatabaseRole{}, sql.ErrConnDone).Once()
@@ -75,7 +75,7 @@ func TestGivenAnErrorInDbWhileFetchingRoles_WhenExecutePropagateRoles_ThenShould
 
 func TestGivenAnErrorInDbWhileFetchingInstanceToUpdate_WhenExecutePropagateRoles_ThenShouldReturnSuccessFalse(t *testing.T) {
 	dbInstanceStorage := new(mocks.DatabaseInstanceStorageMock)
-	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzureInstanceDTO()}
+	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzInstanceDTO()}
 	dbInstanceStorage.On("FindAllDTOsEnabled", "", "").Return(dbInstances, nil).Once()
 	dbInstanceStorage.On("FindByID", dbInstances[0].ID).Return(&entity.DatabaseInstance{}, sql.ErrConnDone).Once()
 	roleStorage := new(mocks.DatabaseRoleStorageMock)
@@ -99,7 +99,7 @@ func TestGivenAnErrorInDbWhileFetchingInstanceToUpdate_WhenExecutePropagateRoles
 
 func TestGivenAnErrorInDbWhileUpdateInstance_WhenExecutePropagateRoles_ThenShouldReturnSuccessFalse(t *testing.T) {
 	dbInstanceStorage := new(mocks.DatabaseInstanceStorageMock)
-	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzureInstanceDTO()}
+	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzInstanceDTO()}
 	dbInstanceStorage.On("FindAllDTOsEnabled", "", "").Return(dbInstances, nil).Once()
 	dbInstanceStorage.On("FindByID", dbInstances[0].ID).Return(&entity.DatabaseInstance{}, nil).Once()
 	dbInstanceStorage.On("Update", mock.Anything).Return(sql.ErrConnDone).Once()

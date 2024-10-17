@@ -55,7 +55,7 @@ func TestGivenInputWithIdsNotExistent_WhenExecuteTestConnection_ThenShouldReturn
 
 func TestGivenAnErrorInDbWhileFetchingInstanceToUpdate_WhenExecuteTestConnection_ThenShouldReturnSuccessFalse(t *testing.T) {
 	dbInstanceStorage := new(mocks.DatabaseInstanceStorageMock)
-	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzureInstanceDTO()}
+	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzInstanceDTO()}
 	dbInstanceStorage.On("FindAllDTOsEnabled", "", "").Return(dbInstances, nil).Once()
 	dbInstanceStorage.On("FindByID", dbInstances[0].ID).Return(&entity.DatabaseInstance{}, sql.ErrConnDone).Once()
 
@@ -76,7 +76,7 @@ func TestGivenAnErrorInDbWhileFetchingInstanceToUpdate_WhenExecuteTestConnection
 
 func TestGivenAnErrorInDbWhileUpdateInstance_WhenExecuteTestConnection_ThenShouldReturnSuccessFalse(t *testing.T) {
 	dbInstanceStorage := new(mocks.DatabaseInstanceStorageMock)
-	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzureInstanceDTO()}
+	dbInstances := []*dto.DatabaseInstanceOutputDTO{mocks.BuildAzInstanceDTO()}
 	dbInstanceStorage.On("FindAllDTOsEnabled", "", "").Return(dbInstances, nil).Once()
 	dbInstanceStorage.On("FindByID", dbInstances[0].ID).Return(&entity.DatabaseInstance{}, nil).Once()
 	dbInstanceStorage.On("Update", mock.Anything).Return(sql.ErrConnDone).Once()
