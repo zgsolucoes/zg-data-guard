@@ -33,3 +33,6 @@ dist/
 
 # JetBrains IDE
 .idea/
+
+# Lint reports
+report-lint.html
