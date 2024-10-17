@@ -36,3 +36,6 @@ dist/
 
 # Lint reports
 report-lint.html
+
+reports/
+coverage.html
