@@ -8,7 +8,7 @@ import (
 
 const (
 	databaseName         = "zg-data-guard"
-	dbDesc               = "Banco de dados do ZG Data Guard"
+	dbDesc               = "ZG Data Guard Database"
 	dbCurrentSize        = "15MB"
 	dbDatabaseInstanceId = "dd42cf0c-8a91-42d7-a906-cb9313494e7d"
 )
