@@ -39,8 +39,6 @@ const (
 	UserAccessRevokedAndExcludedMsg = "the user '%s' has had their access revoked and was successfully removed from instance '%s'"
 	UserCreatedMsg                  = "the user '%s' was successfully created in instance '%s'"
 	PermissionGrantedMsg            = "access permission granted to user '%s' on database '%s' of instance '%s'"
-	InstanceDisabledSuccessMsg      = "instance '%s' has been disabled"
-	InstanceEnabledSuccessMsg       = "instance '%s' has been enabled"
 )
 
 type globalContextOnGrant struct {
