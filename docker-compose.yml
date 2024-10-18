@@ -12,8 +12,16 @@ services:
       - "5433:5432"
     volumes:
       # Mount the postgres_data volume to persist the data, even if the container is removed or recreated. Example below:
-#     - postgres_data:/var/lib/postgresql/data
+      #     - postgres_data:/var/lib/postgresql/data
       - ./postgres-init:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+
+  api:
+    build: .
+    image: zg-data-guard-api:latest
+    ports:
+      - "8081:8081"
     networks:
       - backend
 
