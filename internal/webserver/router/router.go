@@ -31,8 +31,6 @@ func Init() {
 	r.Use(middleware.RealIP)
 	// Recover from panics without crashing server
 	r.Use(middleware.Recoverer)
-	// CleanPath middleware will clean up the request URL path, redirecting to the clean path. For example, /path//to will redirect to /path/to
-	r.Use(middleware.CleanPath)
 
 	basePath := config.GetAppContextPath()
 	log.Printf("Application BasePath: %s", basePath)
