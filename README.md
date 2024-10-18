@@ -72,28 +72,9 @@ Control users' access to instances/databases by granting or revoking connect per
 
 The API is protected using JWT (JSON Web Tokens) for secure authentication and authorization, ensuring safe communication between clients and the server.
 
-## Directory structure
+## Technologies Used
 
 ---
-```
-.
-├── cmd
-│   ├── zg-data-guard
-│       └── main.go     //main function start the server
-├── config              //configurations for the project
-├── docs                //swagger API documentation
-├── internal
-│   ├── database        //connector, migrations, sql files and storages
-│   ├── dto             //data transfer objects
-│   ├── entity          //database entities, models
-│   ├── usecase         //business logic
-│   ├── webserver       //http server, routes, handlers, middlewares
-├── pkg                 //shared packages, utilities, security functions like crypto and jwt
-└── testdata            //test data for unit tests, mocks
-...
-```
-
-## Technologies Used
 
 - GoLang 1.22+
 - PostgreSQL 16+
@@ -131,7 +112,55 @@ The API is protected using JWT (JSON Web Tokens) for secure authentication and a
 1. Swaggo - Swagger documentation
 1. OAuth2 - OAuth2 library
 
-## Getting started
+## Usage
+
+---
+
+### 1. Installation
+- [**Docker**](#docker)
+- [**Docker Compose**](#docker-compose)
+
+### 2. Setup Project
+
+#### Environment Variables
+1. Configure the environment variables by creating a `.env` file in the root directory. Use the `.env.example` file as a template.
+```sh
+   cp .env.example .env
+```
+2. Update the `.env` file envs according to your preferences.
+
+#### (TODO) Keycloak to Secure the API
+
+1. Visit http://localhost:8080.
+2. Log in with the credentials defined for Keycloak in the `.env` file.
+3. Create a new realm, e.g., `zg-data-guard`.
+4. Create a new client, e.g., `zg-data-guard-api`.
+5. Configure the client with the following settings:
+    - **Access Type:** Confidential
+    - **Valid Redirect URIs:** `http://localhost:8081/*`
+    - **Web Origins:** `http://localhost:8081`
+    - **Client Protocol:** `openid-connect`
+    - **Service Accounts Enabled:** On
+    - **Authorization Enabled:** On
+    - **Direct Access Grants Enabled:** On
+    - **Standard Flow Enabled:** On
+6. Create a new user and assign the user to the client.
+7. Update the `.env` file with the Keycloak settings.
+8. Restart the API server.
+9. Access the API at [http://localhost:8081](http://localhost:8081).
+10. Authenticate using the Keycloak credentials.
+11. Access the protected endpoints. Use the Swagger documentation to test the API endpoints.
+
+### 3. Running the API
+- `docker compose up`: Run the services defined in the `docker-compose.yml` file.
+- After the API is running:
+  - Home page - [http://localhost:8081](http://localhost:8081)
+  - Click in Login to access the Keycloak login page and authenticate.
+  - Get the JWT token and use it to access the API endpoints.
+  - You can use the Swagger UI to interact with the endpoints. The API can be accessed at [http://localhost:8081/docs/index.html](http://localhost:8081/docs/index.html).
+  - Click on the `Authorize` button and enter the JWT token in the `Value` field with the `Bearer` prefix.
+
+## Development Guide
 
 ---
 
@@ -259,6 +288,27 @@ make --version
 
 After installing all the tools, you should be ready to set up and run the project.
 
+### Directory Structure
+
+---
+```
+.
+├── cmd
+│   ├── zg-data-guard
+│       └── main.go     //main function start the server
+├── config              //configurations for the project
+├── docs                //swagger API documentation
+├── internal
+│   ├── database        //connector, migrations, sql files and storages
+│   ├── dto             //data transfer objects
+│   ├── entity          //database entities, models
+│   ├── usecase         //business logic
+│   ├── webserver       //http server, routes, handlers, middlewares
+├── pkg                 //shared packages, utilities, security functions like crypto and jwt
+└── testdata            //test data for unit tests, mocks
+...
+```
+
 ### Set up the Project
 
 ---
@@ -341,36 +391,34 @@ To run the tests and generate an HTML file with a complete coverage report for e
 make test-cover-report
 ```
 
-To validate the total test coverage percentage, run:
+To validate the total test coverage percentage of all files, run:
 
 ```bash
 make coverage
 ```
 
-The minimum test coverage percentage is configured in the `Makefile` file in the `MIN_COVERAGE` variable.
+To validate the total test coverage percentage of business logic files, run:
 
-## Setup Keycloak to Secure the API
+```bash
+make core-coverage
+```
 
-1. Visit http://localhost:8080.
-2. Log in with the credentials defined for Keycloak in the `.env` file.
-3. Create a new realm, e.g., `zg-data-guard`.
-4. Create a new client, e.g., `zg-data-guard-api`.
-5. Configure the client with the following settings:
-   - **Access Type:** Confidential
-   - **Valid Redirect URIs:** `http://localhost:8081/*`
-   - **Web Origins:** `http://localhost:8081`
-   - **Client Protocol:** `openid-connect`
-   - **Service Accounts Enabled:** On
-   - **Authorization Enabled:** On
-   - **Direct Access Grants Enabled:** On
-   - **Standard Flow Enabled:** On
-6. Create a new user and assign the user to the client.
-7. Update the `.env` file with the Keycloak settings.
-8. Restart the API server.
-9. Access the API at [http://localhost:8081](http://localhost:8081).
-10. Authenticate using the Keycloak credentials.
-11. Access the protected endpoints. Use the Swagger documentation to test the API endpoints.
+The minimum test coverage percentage is configured in the `Makefile` file in the `MIN_COVERAGE` and `MIN_CORE_COVERAGE` variables.
+
+### Release
+
+--- 
+
+The `make release=<version>` command was created to be used by CI/CD pipeline.
+
+## Credits
+
+--- 
+
+This project was created by the [ZG Soluções](https://www.linkedin.com/company/zg-solucoes/) team.
 
 Enjoy!
 
 ![ZG Soluções](logo-zg.png)
+
+[https://zgsolucoes.com.br/](https://zgsolucoes.com.br/)
