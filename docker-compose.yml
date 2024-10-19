@@ -19,6 +19,8 @@ services:
 
   api:
     build: .
+    container_name: zg-data-guard
+    restart: always
     image: zg-data-guard-api:latest
     ports:
       - "8081:8081"
