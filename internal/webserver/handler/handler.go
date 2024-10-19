@@ -10,6 +10,7 @@ import (
 	databaseUserUsecase "github.com/zgsolucoes/zg-data-guard/internal/usecase/database_user"
 	ecosystemUsecase "github.com/zgsolucoes/zg-data-guard/internal/usecase/ecosystem"
 	technologyUsecase "github.com/zgsolucoes/zg-data-guard/internal/usecase/technology"
+	userUsecase "github.com/zgsolucoes/zg-data-guard/internal/usecase/user"
 )
 
 var (
@@ -44,7 +45,7 @@ func initializeEntityStorages() {
 }
 
 func initializeUseCases() {
-	// initializeUserUseCases(appUserStorage)
+	initializeUserUseCases(appUserStorage)
 	initializeEcosystemUseCases(ecosystemStorage, appUserStorage)
 	initializeTechnologyUseCases(technologyStorage, appUserStorage)
 	initializeDatabaseInstanceUseCases(instanceStorage, ecosystemStorage, technologyStorage, databaseStorage, roleStorage, accessStorage)
@@ -54,9 +55,9 @@ func initializeUseCases() {
 	initializeDatabaseUserUseCases(dbUserStorage, roleStorage, accessStorage)
 }
 
-// func initializeUserUseCases(appUserStorage database.ApplicationUserStorage) {
-// 	getUserUC = userUsecase.NewGetUserUseCase(appUserStorage)
-// }
+func initializeUserUseCases(appUserStorage database.ApplicationUserStorage) {
+	getUserUC = userUsecase.NewGetUserUseCase(appUserStorage)
+}
 
 func initializeEcosystemUseCases(ecosystemStorage database.EcosystemStorage, appUserStorage database.ApplicationUserStorage) {
 	createEcosystemUC = ecosystemUsecase.NewCreateEcosystemUseCase(ecosystemStorage)

@@ -17,7 +17,7 @@ func initializeRoutes(r *chi.Mux, basePath string) {
 
 	r.Get(buildPath(basePath, "/"), handler.HomeHandler)
 	setupHealthCheckRoutes(r, basePath)
-	setupOAuthRoutes(r, basePath)
+	setupAuthRoutes(r, basePath)
 	setupProtectedAPIRoutes(r, basePath)
 	setupSwaggerRoute(r, basePath)
 }
@@ -27,10 +27,10 @@ func setupHealthCheckRoutes(r *chi.Mux, basePath string) {
 	r.Get(buildPath(basePath, "/healthcheck/info"), handler.HealthCheckHandler)
 }
 
-func setupOAuthRoutes(r *chi.Mux, basePath string) {
-	oauthRouter := chi.NewRouter()
-	oauthRouter.Use(middleware.Logger)
-	r.Mount(buildPath(basePath, apiBasePath), oauthRouter)
+func setupAuthRoutes(r *chi.Mux, basePath string) {
+	if config.GetEnvironment() == config.EnvDevelopment {
+		r.Get("/auth/internal", handler.InternalUserAuthHandler)
+	}
 }
 
 func setupProtectedAPIRoutes(r *chi.Mux, basePath string) {
