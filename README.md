@@ -129,6 +129,49 @@ The API is protected using JWT (JSON Web Tokens) for secure authentication and a
 ```
 2. Update the `.env` file envs according to your preferences.
 
+### 3. Running the API
+- `docker-compose build --no-cache`: Build the services defined in the `docker-compose.yml` file.
+- `docker-compose up`: Run the services defined in the `docker-compose.yml` file.
+
+To stop and remove containers, networks, and volumes defined in the `docker-compose.yml` file, run:
+
+```sh
+docker-compose down
+```
+
+### 4. How to Interact with the API
+
+- **Home Page:**  
+  Access the application's home page at [http://localhost:8081](http://localhost:8081).
+
+- **Health Check Endpoint:**  
+  Access the health check endpoint at [http://localhost:8081/healthcheck/info](http://localhost:8081/healthcheck/info).
+
+- **Authentication for Testing Purposes:**
+    - Click on the **`Login - internal user`** button to authenticate using the `zg-services` user.
+        - This user is intended **just for testing and interacting with API endpoints**.
+    - After logging in, you will receive a **JWT token**.
+
+- **Using the JWT Token:**
+    - **Copy** the JWT token provided after authentication.
+    - Use this token to **interact with the API endpoints** that require authentication.
+
+- **Accessing Swagger UI:**
+    - You can use Swagger UI to interact with the API endpoints.
+    - Open Swagger UI by clicking on the **`Open Swagger UI`** button or navigating to [http://localhost:8081/docs/index.html](http://localhost:8081/docs/index.html).
+
+- **Authorizing in Swagger UI:**
+    - In Swagger UI, click on the **`Authorize`** button (usually represented by a lock icon).
+    - In the modal that appears, enter the JWT token in the **`Value`** field.
+    - Click **`Authorize`** to authenticate your session.
+    - You can now make authenticated requests to the API endpoints directly from Swagger UI.
+    - Try accessing the [http://localhost:8081/api/v1/database-roles](http://localhost:8081/api/v1/database-roles) endpoint to list all predefined roles. Don't forget the `Authorization` header with the JWT token.
+
+**Additional Notes:**
+
+- Ensure that the API is **running properly** before attempting to access the home page or Swagger UI.
+- The `zg-services` user is meant **for testing purposes and internal routines only** and should **not be used in production environments**.
+
 #### (TODO) Keycloak to Secure the API
 
 1. Visit http://localhost:8080.
@@ -150,15 +193,6 @@ The API is protected using JWT (JSON Web Tokens) for secure authentication and a
 9. Access the API at [http://localhost:8081](http://localhost:8081).
 10. Authenticate using the Keycloak credentials.
 11. Access the protected endpoints. Use the Swagger documentation to test the API endpoints.
-
-### 3. Running the API
-- `docker compose up`: Run the services defined in the `docker-compose.yml` file.
-- After the API is running:
-  - Home page - [http://localhost:8081](http://localhost:8081)
-  - Click in Login to access the Keycloak login page and authenticate.
-  - Get the JWT token and use it to access the API endpoints.
-  - You can use the Swagger UI to interact with the endpoints. The API can be accessed at [http://localhost:8081/docs/index.html](http://localhost:8081/docs/index.html).
-  - Click on the `Authorize` button and enter the JWT token in the `Value` field with the `Bearer` prefix.
 
 ## Development Guide
 
