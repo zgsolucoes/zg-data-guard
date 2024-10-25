@@ -120,11 +120,14 @@ build: clean
 .PHONY: release
 release: build
 	@echo "==> Releasing the application..."
-	@if [ -z "$${version}" ]; then echo "> version is not set. Use: make release version=<version>. Release aborted."; exit 1; fi
-	@echo "> Creating new tag: $${version}"
-	@git tag -a $${version} -m "Release v$${version}"
-	@echo "> Pushing new tag: $${version}"
-	@git push origin $${version}
+	@if [ -z "$${version}" ]; then \
+		echo "> version is not set. Use: make release version=<version>. Release aborted."; \
+		exit 1; \
+	fi
+	@echo "> Creating new tag: v$${version}"
+	@git tag -a v$${version} -m "Release v$${version}"
+	@echo "> Pushing new tag: v$${version}"
+	@git push origin v$${version}
 	@echo "> Release completed successfully!"
 
 .PHONY: create_migration migrate_up migrate_down migrate_force run run-with-docs docs build test clean
