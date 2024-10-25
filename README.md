@@ -443,7 +443,18 @@ The minimum test coverage percentage is configured in the `Makefile` file in the
 
 --- 
 
-The `make release=<version>` command was created to be used by CI/CD pipeline.
+The `make release=<version>` command was created to be used by CI/CD pipeline. Example:
+
+```bash
+make release=1.2.3
+```
+It will generate a release tag with the version `v1.2.3` in the `dist` folder.
+
+## Contributing
+
+--- 
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Credits
 
